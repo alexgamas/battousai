@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-                                BEGIN OF PROGRAM
+BEGIN OF PROGRAM
 ----------------------------------------------------------------------------
 AUTHOR     : Alex Gamas
 MAIN GOAL  : Open an Image file and display this!
@@ -24,9 +24,9 @@ print "| R = Gravar campo de trabalho                        |"
 print "| F = Delimitar campo de trabalho                     |"
 print "| Q = Sair, mesmo que ESC                             |"
 print "+-----------------------------------------------------+"
-print "\n\n\n\n"
+print "\n\n"
 
-folder = "../in_images"
+folder = "./in_images"
 
 files = util.listFiles(folder)
 
@@ -40,4 +40,4 @@ iv.ImageView(files);
 
 
 '''END OF PROGRAM
-'''  
+'''
