@@ -11,14 +11,9 @@ class Point():
     x = 0
     y = 0
     
-    def color(self):
-        return self.color
-        
-    def x(self):
-        return self.x;
-    
-    def y(self):
-        return self.y;
+    def color(self): return self.color
+    def x(self): return self.x
+    def y(self): return self.y
     
     def __init__(self, x, y, color = Qt.black):
         self.x = x
@@ -131,21 +126,26 @@ class MainWindow(QMainWindow):
         
     
     def setUpActualImage(self):
-        print "set-up img ... ", self.actualImagePos, " of ", len(self.pixmaps)
-        self.imagePanel.setPixmap(self.pixmaps[self.actualImagePos])
-        self.imagePanel.update()
+        if (self.pixmaps != None):
+            print "set-up img ... ", self.actualImagePos, " of ", len(self.pixmaps)
+            self.imagePanel.setPixmap(self.pixmaps[self.actualImagePos])
+            self.imagePanel.update()
+        else:
+            print "Nothing to set-up"
     
     def goToPrevImage(self):
-        self.actualImagePos = self.actualImagePos - 1
-        if self.actualImagePos < 0:
-            self.actualImagePos = len(self.pixmaps) - 1
-        self.setUpActualImage()
+        if (self.pixmaps != None):
+            self.actualImagePos = self.actualImagePos - 1
+            if self.actualImagePos < 0:
+                self.actualImagePos = len(self.pixmaps) - 1
+            self.setUpActualImage()
                 
     def goToNextImage(self):
-        self.actualImagePos = self.actualImagePos + 1 
-        if self.actualImagePos >= len(self.pixmaps):
-            self.actualImagePos = 0
-        self.setUpActualImage()
+        if (self.pixmaps != None):
+            self.actualImagePos = self.actualImagePos + 1 
+            if self.actualImagePos >= len(self.pixmaps):
+                self.actualImagePos = 0
+            self.setUpActualImage()
 
     def goToFieldMarkMode(self):
         self.imagePanel.togleFieldMarkMode()
@@ -177,11 +177,10 @@ class MainWindow(QMainWindow):
         files = self.filterFiles(util.listFiles(str(folder_name)), self._FILE_EXTENSIONS)
         
         if len(files) == 0:
-            print "A pasta selecionada não possui arquivos dos tipos: ", self._FILE_EXTENSIONS
+            print u"A pasta selecionada não possui arquivos dos tipos: ", self._FILE_EXTENSIONS
             return None
         else:
             qtdImages = len(files)
-            
             '''
             QProgressDialog(QWidget parent=None, Qt.WindowFlags flags=0)
             QProgressDialog(QString, QString, int, int, QWidget parent=None, Qt.WindowFlags flags=0)
