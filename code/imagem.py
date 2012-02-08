@@ -19,6 +19,40 @@ class Point():
         self.x = x
         self.y = y
         self.color = color
+        
+class Square():
+    
+    FIELD = 0
+    SELECTION = 1
+    
+    point_1 = Point(0, 0)
+    point_2 = Point(0, 0)
+    x1, x2, y1, y2, h, w = 0
+    
+    childs = []
+    
+    def addChild(self, square):
+        self.childs.append(square)
+        
+    def type(self):
+        if (len(self.childs) > 0):
+            return self.FIELD
+        else:
+            return self.SELECTION
+        
+    def __init__(self, point_1, point_2):
+        
+        self.x1 = min(point_1.x, point_2.x)
+        self.y1 = min(point_1.y, point_2.y)
+        self.x2 = max(point_1.x, point_2.x)
+        self.y2 = max(point_1.y, point_2.y)
+        self.h  = self.y2 - self.y1
+        self.w  = self.x2 - self.x1
+        
+        
+        pass
+   
+    
     
 class ImageDrawPanel(QGraphicsPixmapItem):
     fieldMarkMode = False
@@ -202,5 +236,6 @@ class MainWindow(QMainWindow):
 if __name__ == "__main__":    
     app = QApplication(sys.argv)
     mainWindow = MainWindow()
-    mainWindow.show()
+    mainWindow.showMaximized()
+    #mainWindow.show()
     sys.exit(app.exec_())

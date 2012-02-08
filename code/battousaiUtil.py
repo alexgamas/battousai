@@ -2,11 +2,12 @@ import os
 
 def listFiles(folder):
     fileList = []
+    print "\nScan for files under the folder: {f} ... \n".format(f = folder)
     for path, dirs, files in os.walk(folder):
-        level = path.count(os.path.sep)
-        if level == 0:
-            for f in files:
-                filename = os.path.join(path, f)
-                print "\t", filename
-                fileList.append(filename)
+        print path
+        for f in files:
+            filename = os.path.join(path, f)
+            print "\t+", filename
+            fileList.append(filename)
+    fileList.sort()
     return fileList
