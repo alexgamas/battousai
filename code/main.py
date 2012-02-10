@@ -12,7 +12,7 @@ USAGE TIPS :
 '''
 import battousai
 
-
+battousai.start()
 
 '''END OF PROGRAM
 '''

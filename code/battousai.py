@@ -347,8 +347,8 @@ class MainWindow(QMainWindow):
             self.vecFile.close()
             
 
-			
-if __name__ == "__main__":    
+def start():
+    #if __name__ == "__main__":    
     app = QApplication(sys.argv)
     mainWindow = MainWindow()
     mainWindow.showMaximized()
