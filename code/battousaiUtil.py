@@ -7,7 +7,7 @@ def listFiles(folder):
         print path
         for f in files:
             filename = os.path.join(path, f)
-            print "\t+" + filename
+            print "\t+ (...)" + filename[-60:]
             fileList.append(filename)
     fileList.sort()
     return fileList

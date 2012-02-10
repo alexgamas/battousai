@@ -346,7 +346,8 @@ class MainWindow(QMainWindow):
         if (self.vecFile != None) and (not self.vecFile.closed):
             self.vecFile.close()
             
-            
+
+			
 if __name__ == "__main__":    
     app = QApplication(sys.argv)
     mainWindow = MainWindow()
