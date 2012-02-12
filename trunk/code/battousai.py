@@ -252,7 +252,6 @@ class MainWindow(QMainWindow):
     '''
     [filename] [# of objects] [[x y width height] [... 2nd object] ...]
     '''
-
     def recordVecData(self, pixmap, field):
         mainImage = pixmap.copy(field.x1, field.y1, field.w, field.h)
         
